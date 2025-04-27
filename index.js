@@ -1,8 +1,13 @@
 const { Client, LocalAuth, MessageMedia } = require('whatsapp-web.js');
 const qrcode = require('qrcode-terminal');
+const puppeteer = require('puppeteer-core');  // pastikan puppeteer-core diimport
 
 const client = new Client({
-    authStrategy: new LocalAuth()
+    authStrategy: new LocalAuth(),
+    puppeteer: {
+        executablePath: '/path/to/your/chromium',  // Tentukan path ke Chromium jika perlu
+        args: ['--no-sandbox', '--disable-setuid-sandbox']  // Menambahkan opsi --no-sandbox
+    }
 });
 
 client.on('qr', (qr) => {
