@@ -5,7 +5,7 @@ const puppeteer = require('puppeteer-core');  // pastikan puppeteer-core diimpor
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        executablePath: '/usr/bin/chromium-browser',  // Ganti dengan path yang benar
+        executablePath: '/usr/bin/chromium-browser',  // Path yang benar ke Chromium
         args: ['--no-sandbox', '--disable-setuid-sandbox']  // Menambahkan opsi --no-sandbox
     }
 });
@@ -56,4 +56,4 @@ client.on('message', async (msg) => {
     }
 });
 
-client.initialize
+client.initialize();
